@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:15
     container_name: postgres_db
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -17,7 +17,7 @@ services:
       context: ./apps/backend
       dockerfile: Dockerfile.dev
     container_name: backend_api
-    restart: always
+    restart: unless-stopped
     environment:
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -37,7 +37,7 @@ services:
       context: ./apps/frontend
       dockerfile: Dockerfile.dev
     container_name: frontend_app
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./apps/frontend:/usr/src/app
       - /usr/src/app/node_modules
