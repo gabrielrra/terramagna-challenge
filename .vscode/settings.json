@@ -1,0 +1,6 @@
+{
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "deploy.yml",
+    "https://json.schemastore.org/lazydocker.json": "file:///home/gabrielrra/.config/lazydocker/config.yml"
+  }
+}
