@@ -72,3 +72,18 @@ DATABASE_NAME=terramagna_db
    ```
 
 6. Access the application at `http://localhost:4200`
+
+## **[IMPORTANT]** Initial data and Login
+
+The application requires initial data to be present in the database. You can run the following command to seed the database with some initial data (API and database must be running):
+
+```bash
+curl -X POST http://localhost:3000/generate-fake-data -H "Content-Type: application/json" -d '{"quantity": 10}'
+```
+
+To login, use any username on `clients` table and the password `123456`.
+Fetch an username using the following command (database must be running):
+
+```bash
+docker exec postgres_db psql -U postgres -d terramagna_db -c "SELECT username FROM clients LIMIT 1;"
+```
