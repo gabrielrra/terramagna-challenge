@@ -1,0 +1,15 @@
+mat-sidenav-container {
+  height: 100%;
+}
+mat-sidenav {
+  background-color: #810081;
+  height: 100%;
+  border-radius: 0;
+  width: 200px;
+}
+
+.content {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}

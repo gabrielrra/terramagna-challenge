@@ -1,11 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { FarmerService } from './farmer.service';
 import { CreateFarmerDto } from './dto/create-farmer.dto';
 import { UpdateFarmerDto } from './dto/update-farmer.dto';
+import { AuthGuard } from '@/guards/auth.guard';
 
 @Controller('farmer')
+@UseGuards(AuthGuard)
 export class FarmerController {
-  constructor(private readonly farmerService: FarmerService) {}
+  constructor(private readonly farmerService: FarmerService) { }
 
   @Post()
   create(@Body() createFarmerDto: CreateFarmerDto) {
@@ -19,16 +21,16 @@ export class FarmerController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.farmerService.findOne(+id);
+    return this.farmerService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateFarmerDto: UpdateFarmerDto) {
-    return this.farmerService.update(+id, updateFarmerDto);
+    return this.farmerService.update(id, updateFarmerDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.farmerService.remove(+id);
+    return this.farmerService.remove(id);
   }
 }

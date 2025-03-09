@@ -1,12 +1,23 @@
-.map-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 30px;
+.root-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
-
+.map-controls {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+  padding: 10px;
+}
+.map-controls mat-form-field {
+  margin: 0 10px;
+}
+.map-container {
+  flex: 1;
+  width: 100%;
+}
 .map-frame {
   border: 2px solid black;
   height: 100%;
@@ -14,4 +25,8 @@
 
 #map {
   height: 100%;
+  width: 100%;
+}
+.leaflet-pane.leaflet-shadow-pane {
+  display: none;
 }

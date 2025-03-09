@@ -1,0 +1,80 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" role="navigation" opened>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <a
+          mat-flat-button
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Dashboard
+        </a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <a
+          mat-flat-button
+          routerLink="/map"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          Map
+        </a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button mat-flat-button aria-label="Logout" (click)="logout()">
+          Logout <mat-icon>open_in_new</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      Dashboard
+    </a>
+    <a routerLink="/map" routerLinkActive="active" ariaCurrentWhenActive="page">
+      Map
+    </a>
+  </mat-drawer>
+  <mat-drawer-content>
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container> -->
+
+<!-- <div class="layout-container">
+  <nav class="side-menu">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      >Dashboard</a
+    >
+    <a
+      routerLink="/profile"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      >Profile</a
+    >
+    <a routerLink="/map" routerLinkActive="active" ariaCurrentWhenActive="page"
+      >Map</a
+    >
+    <button (click)="logout()">Logout</button>
+  </nav>
+  <main class="content">
+    <router-outlet />
+  </main>
+</div> -->

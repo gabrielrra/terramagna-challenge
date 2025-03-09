@@ -9,7 +9,16 @@ export class Client {
   @Column({ length: 255 })
   name: string;
 
-  @Column({ length: 18, unique: true })
+  @Column({ length: 50, unique: true })
+  username: string;
+
+  @Column({ length: 255 })
+  password: string;
+
+  @Column({ length: 20 })
+  password_salt: string;
+
+  @Column({ length: 14, unique: true })
   cnpj: string;
 
   @Column({ type: 'text', nullable: true })

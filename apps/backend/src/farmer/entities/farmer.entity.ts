@@ -7,17 +7,17 @@ export class Farmer {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Client, (client) => client.farmers, { onDelete: 'CASCADE' })
-  client: Client;
+  @ManyToOne(() => Client, (client) => client.farmers, { onDelete: 'SET NULL', nullable: true },)
+  client?: Client;
 
   @Column({ length: 255 })
   name: string;
 
-  @Column({ length: 14, unique: true })
+  @Column({ length: 11, unique: true })
   cpf: string;
 
   @CreateDateColumn({ type: 'timestamp' })
-  created_at: Date;
+  createdAt: Date;
 
   @OneToMany(() => Farm, (farm) => farm.farmer)
   farms: Farm[];

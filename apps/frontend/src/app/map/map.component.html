@@ -1,5 +1,41 @@
-<div class="map-container">
-  <div class="map-frame">
-    <div id="map"></div>
+<div class="root-container">
+  <div class="map-controls">
+    <mat-form-field>
+      <mat-label>Visão do mapa</mat-label>
+      <mat-select
+        (selectionChange)="onMapControlsChange()"
+        [(value)]="mapControls.mapType"
+      >
+        @for (o of mapTypeOptions; track o) {
+          <mat-option [value]="o.value">{{ o.viewValue }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Área Mínima (hectar)</mat-label>
+      <input
+        matInput
+        type="number"
+        (change)="onMapControlsChange()"
+        [(ngModel)]="mapControls.minimumArea"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Produtos</mat-label>
+      <mat-select
+        multiple
+        (selectionChange)="onMapControlsChange()"
+        [(value)]="mapControls.products"
+      >
+        @for (p of productOptions; track p) {
+          <mat-option [value]="p.value">{{ p.viewValue }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
   </div>
 </div>
